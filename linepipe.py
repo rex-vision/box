@@ -46,14 +46,8 @@ class CatVTONPipeline:
         self.auto_attn_ckpt_load(attn_ckpt, attn_ckpt_version)
         # Pytorch 2.0 Compile
         if compile:
-            compile_config = {
-                "mode": "reduce-overhead",
-                # "fullgraph": True,
-                # "dynamic": False
-            }
-            
-            self.unet = torch.compile(self.unet, **compile_config)
-            self.vae = torch.compile(self.vae, **compile_config)
+            self.unet = torch.compile(self.unet)
+            self.vae = torch.compile(self.vae, mode="reduce-overhead")
             
         # Enable TF32 for faster training on Ampere GPUs (A100 and RTX 30 series).
         if use_tf32:
