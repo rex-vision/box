@@ -49,8 +49,7 @@ class CatVTONPipeline:
             compile_config = {
                 "mode": "max-autotune",
                 "fullgraph": True,
-                "dynamic": False,
-                "disable_assert": True  # assertion 검사 비활성화
+                "dynamic": False
             }
             
             self.unet = torch.compile(self.unet, **compile_config)
