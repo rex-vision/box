@@ -48,8 +48,8 @@ class CatVTONPipeline:
         if compile:
             compile_config = {
                 "mode": "max-autotune",
-                "fullgraph": True,
-                "dynamic": False
+                # "fullgraph": True,
+                # "dynamic": False
             }
             
             self.unet = torch.compile(self.unet, **compile_config)
