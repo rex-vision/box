@@ -47,7 +47,7 @@ class CatVTONPipeline:
         # Pytorch 2.0 Compile
         if compile:
             compile_config = {
-                "mode": "max-autotune",
+                "mode": "reduce-overhead",
                 # "fullgraph": True,
                 # "dynamic": False
             }
